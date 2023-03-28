@@ -1,5 +1,6 @@
 package com.sergsnic.lesson6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,6 +18,7 @@ public class MainPageHomeWork extends BasePageHomeWork{
     // закрыли переменную чтобы работать только с методом.
     private WebElement frameInOpen;
 
+    @Step("Промежуточная операция открытия Frame для доступа к строке поиска")
     public MainPageHomeWork openFrame(){
         driver.switchTo().frame(frameInOpen);
         return new MainPageHomeWork(driver);
@@ -24,6 +26,7 @@ public class MainPageHomeWork extends BasePageHomeWork{
     @FindBy(xpath = "//input[@class = 'arrow__input mini-suggest__input']")
     private WebElement seachMenu;
 
+    @Step("Поиск подстроки в строке поиска mail.ru")
     public MainPageHomeWork seachMenu(){ //"погода Белгород"
         seachMenu.sendKeys("погода Белгород");
         return new MainPageHomeWork(driver);
@@ -32,6 +35,7 @@ public class MainPageHomeWork extends BasePageHomeWork{
     @FindBy(xpath = subStringLocator)
     private WebElement seachSubString;
 
+    @Step("Клик подстроки в строке поиска mail.ru")
     public WeatherPageHomeWork seachSubString(){
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(subStringLocator)));
         seachSubString.click();
