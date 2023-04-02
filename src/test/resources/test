@@ -1,0 +1,38 @@
+import com.codeborne.selenide.Configuration;
+import com.sergsnic.lesson8.MainPageHomeWork;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+import static com.codeborne.selenide.Selenide.open;
+
+public class MyStepdefs {
+    @Given("Пользователь зашел на сайт")
+    public void пользовательЗашелНаСайт() {
+        Configuration.timeout = 10000;
+        open("https://mail.ru/");
+    }
+    @When("Выбираем подстроку Погода в Белгороде")
+    public void вводимВПоисковуюСтроку() {
+        new MainPageHomeWork().openFrame();
+//        new MainPageHomeWork().seachMenu();
+    }
+    @And("Выбираем подстроку")
+    public void выбираемПодстроку() {
+
+//        new MainPageHomeWork().seachSubString();
+    }
+    @And("Проверяем наличие пункта меню Mail")
+    public void проверяемНаличиеПунктаМенюMail() {
+
+//        new WeatherPageHomeWork().iconMailCheck();
+    }
+
+
+    @Then("Проверяем наличие результата поиска Gismeteo")
+    public void проверяемНаличиеРезультатаПоискаGismeteo() {
+//        new WeatherPageHomeWork().frameOpen();
+//        new WeatherPageHomeWork().gismeteoWebsaitCheck();
+    }
+}
